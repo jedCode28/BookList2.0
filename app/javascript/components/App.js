@@ -16,6 +16,7 @@ const App = (props) => {
     try{
     let res = await axios.get("/books")
     console.log(res.data)
+    setBooks(res.data)
     } catch(err){
       handleErr(err)
       setLoading(false)
