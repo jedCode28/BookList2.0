@@ -5,7 +5,7 @@ class BooksController < ApplicationController
   end
 
   def index 
-    @books = Book.order(id: :desc)
+    @books = Book.order(id: :asc)
     render json: @books
   end 
 

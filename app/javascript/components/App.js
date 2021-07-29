@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Books from "./Books";
 import axios from 'axios';
+import BookForm from './BookForm';
 
 const App = (props) => {
 
@@ -27,6 +28,7 @@ const App = (props) => {
     <div>
       <h1>App</h1>
       <button onClick={getBooks}>See the Books</button>
+      <BookForm />
       <Books books={books} />
     </div>
   )
