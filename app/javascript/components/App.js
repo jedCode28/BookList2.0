@@ -22,13 +22,18 @@ const App = (props) => {
       handleErr(err)
       setLoading(false)
     }
+
+  }
+
+  const addBook = (book) => {
+    setBooks([...books, book])
   }
 
   return(
     <div>
       <h1>App</h1>
       <button onClick={getBooks}>See the Books</button>
-      <BookForm />
+      <BookForm addBook={addBook}/>
       <Books books={books} />
     </div>
   )
