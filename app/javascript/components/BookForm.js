@@ -21,7 +21,7 @@ const BookForm = (props) => {
 
   return(
     <>
-      <h1>Book Form</h1>
+      <h3>Add Books Here</h3>
       <form onSubmit={handleSubmit} >
         <p>Title:</p>
         <input value={title} onChange={(e) => setTitle(e.target.value)}/>

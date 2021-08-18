@@ -29,6 +29,10 @@ const App = (props) => {
     setBooks([...books, book])
   }
 
+  // const updateBook = () => {
+
+  // }
+
   const deleteBook = (id) => {
     const filteredBooks = books.filter( book => {
       return book.id !== id
@@ -38,7 +42,7 @@ const App = (props) => {
 
   return(
     <div>
-      <h1>App</h1>
+      <h1>Books.com</h1>
       <button onClick={getBooks}>See the Books</button>
       <BookForm addBook={addBook}/>
       <Books books={books} deleteBook={deleteBook} />

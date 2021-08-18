@@ -11,13 +11,17 @@ const Book = (props) => {
   }
 
   return(
-    <div>
-      <h1>
-        {id} - {title}
-        <span onClick={() => deleteHandler(id)}>delete</span>
-      </h1>
-      <p>{author}</p>
-    </div>
+    <>
+      <div className='book-header'>
+        <h1>
+          {id} - {title}
+        </h1>
+        <h4>By - {author}</h4>
+      </div>
+      <div className='book-footer'>
+        <p onClick={() => deleteHandler(id)}>delete</p>
+      </div>
+    </>
   )
 }
 
