@@ -29,9 +29,15 @@ const App = (props) => {
     setBooks([...books, book])
   }
 
-  // const updateBook = () => {
-
-  // }
+  const updateBook = async(bookObj, id) => {
+    try{
+      let res = await axios.put(`/books/${id}`, itemObj)
+      let updateBooks = books.map(i => i.id !== id ? i : res.data)
+      setBooks(updateBooks)
+    }catch(err){
+      handleErr(err)
+    }
+  }
 
   const deleteBook = (id) => {
     const filteredBooks = books.filter( book => {
@@ -45,7 +51,7 @@ const App = (props) => {
       <h1>Books.com</h1>
       <button onClick={getBooks}>See the Books</button>
       <BookForm addBook={addBook}/>
-      <Books books={books} deleteBook={deleteBook} />
+      <Books books={books} deleteBook={deleteBook} updateBook={updateBook} />
     </div>
   )
 }

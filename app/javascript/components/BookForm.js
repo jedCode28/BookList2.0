@@ -3,16 +3,22 @@ import axios from 'axios';
 
 const BookForm = (props) => {
 
-  const { addBook } = props
+  const { addBook, id, setShowForm } = props
 
   const [title, setTitle] = useState('')
   const [author, setAuthor] = useState('')
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    const bookObj = {title: title, author: author}
-    let res = await axios.post('/books', bookObj)
-    addBook(res.data)
+    const formObj = {title: title, author: author}
+    // let res = await axios.post('/books', formObj) <--- TODO MOVE THIS LOGIC TO APP.JS
+    if(id){
+      updateBook({title, author}, id)
+      setShowForm(false)
+    } else {
+      addBook({title, author})
+    }
+    // addBook(res.data) <--- THIS LOGIC WILL ALSO MOVE, TODO
     setTitle('')
     setAuthor('')
     // console.log(res.data)
@@ -21,13 +27,14 @@ const BookForm = (props) => {
 
   return(
     <>
-      <h3>Add Books Here</h3>
       <form onSubmit={handleSubmit} >
+        <h3>{id ? `Editing ${id}` : "Add Books Here"}</h3>
         <p>Title:</p>
         <input value={title} onChange={(e) => setTitle(e.target.value)}/>
         <p>Author:</p>
         <input value={author} onChange={(e) => setAuthor(e.target.value)}/>
-        <button type='submit'>Add This Book</button>
+        <button type='submit'>{id ? 'Edit' : 'Add'}</button>
+        {setShowForm && <button onClick={() => setShowForm(false)}>cancel</button>}
       </form>
     </>
   )
