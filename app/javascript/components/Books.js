@@ -12,10 +12,12 @@ const Books = (props) => {
   }
 
   return(
-    <div>
-      <h1>Books:</h1>
-      {renderBooks()}
-    </div>
+    <>
+      <div className='books-container'>
+        <h1>Books:</h1>
+        {renderBooks()}
+      </div>
+    </>
   )
 }
 

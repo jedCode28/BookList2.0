@@ -4,7 +4,7 @@ import BookForm from './BookForm';
 
 const Book = (props) => {
 
-  const { title, author, id, deleteBook, updateBook } = props
+  const { id, title, author, deleteBook, updateBook } = props
 
   const [showForm, setShowForm] = useState(false)
 

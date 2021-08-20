@@ -25,8 +25,13 @@ const App = (props) => {
 
   }
 
-  const addBook = (book) => {
-    setBooks([...books, book])
+  const addBook = async(formObj) => {
+    try{
+      let res = await axios.post('/books', {...formObj}) 
+      setBooks([...books, res.data])
+    }catch(err){
+      handleErr(err)
+    }
   }
 
   const updateBook = async(bookObj, id) => {

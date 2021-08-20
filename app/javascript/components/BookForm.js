@@ -11,7 +11,6 @@ const BookForm = (props) => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     // const formObj = {title: title, author: author} <----- NO LONGER NEEDED? 
-    // let res = await axios.post('/books', formObj) <--- TODO MOVE THIS LOGIC TO APP.JS
     if(id){
       updateBook({title, author}, id)
       setShowForm(false)
