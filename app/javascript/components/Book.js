@@ -33,7 +33,7 @@ const Book = (props) => {
   return(
     <div className='book-container'>
       {!showForm && renderBook()}
-      {showForm && <BookForm id={id} updateBook={updateBook} setShowForm={setShowForm} />}
+      {showForm && <BookForm id={id} updateBook={updateBook} setShowForm={setShowForm} title={title} author={author} />}
     </div>
   )
 }

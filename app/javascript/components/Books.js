@@ -8,9 +8,7 @@ const Books = (props) => {
     if (books.length == 0) {
       return <h1>NO MORE BOOKS FOR THE CHILDREN</h1>
     }
-    return books.map((book) => {
-      return <Book key={book.id} {...book} deleteBook={deleteBook} updateBook={updateBook} />
-    })
+    return books.map( book => <Book updateBook={updateBook} deleteBook={deleteBook} key={book.id} {...book}  />)
   }
 
   return(

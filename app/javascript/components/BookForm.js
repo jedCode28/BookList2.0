@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+// import axios from 'axios'; <---- TODO MOVE LOGIC TO APP.JS
 
 const BookForm = (props) => {
 
-  const { addBook, id, setShowForm } = props
+  const { addBook, id, setShowForm, updateBook, title:tit, author:thor } = props
 
-  const [title, setTitle] = useState('')
-  const [author, setAuthor] = useState('')
+  const [title, setTitle] = useState(tit ? tit : '')
+  const [author, setAuthor] = useState(thor ? thor : '')
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    const formObj = {title: title, author: author}
+    // const formObj = {title: title, author: author} <----- NO LONGER NEEDED? 
     // let res = await axios.post('/books', formObj) <--- TODO MOVE THIS LOGIC TO APP.JS
     if(id){
       updateBook({title, author}, id)

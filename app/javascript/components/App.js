@@ -31,7 +31,7 @@ const App = (props) => {
 
   const updateBook = async(bookObj, id) => {
     try{
-      let res = await axios.put(`/books/${id}`, itemObj)
+      let res = await axios.put(`/books/${id}`, bookObj)
       let updateBooks = books.map(i => i.id !== id ? i : res.data)
       setBooks(updateBooks)
     }catch(err){
