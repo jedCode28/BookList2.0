@@ -23,8 +23,8 @@ const Book = (props) => {
           <h4>By - {author}</h4>
         </div>
         <div className='book-footer'>
-          <p onClick={() => deleteHandler(id)}>delete</p>
-          <p onClick={() => setShowForm(true)}>edit</p>
+          <p className='delete' onClick={() => deleteHandler(id)}>delete</p>
+          <p className='delete' onClick={() => setShowForm(true)}>edit</p>
         </div>
       </>
     )

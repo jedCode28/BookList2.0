@@ -52,9 +52,9 @@ const App = (props) => {
   }
 
   return(
-    <div>
-      <h1>Books.com</h1>
-      <button onClick={getBooks}>See the Books</button>
+    <div className='app'>
+      <h1 className='head-text'>Books.com</h1>
+      <button onClick={getBooks}>See Available Books</button>
       <BookForm addBook={addBook}/>
       <Books books={books} deleteBook={deleteBook} updateBook={updateBook} />
     </div>
